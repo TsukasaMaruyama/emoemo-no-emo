@@ -29,3 +29,5 @@ end
 gem 'aldy_debug_kit_sqlite3'
 
 gem 'levenshtein', '~> 0.2.2'
+
+gem 'google-api-client', '~> 0.11'

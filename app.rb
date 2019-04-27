@@ -6,6 +6,8 @@ require './models'
 require 'aldy_debug_kit_sqlite3'
 require './show_table_action.rb'
 
+require 'google/apis/customsearch_v1'
+
 # require 'levenshtein'
 enable :sessions
 
@@ -14,6 +16,21 @@ enable :sessions
 
 get '/' do
   erb :index
+end
+
+get '/get_images' do
+  API_KEY = 'AIzaSyB8rzr7ev_zswUN07t1eSq6vd9QqEhN4M0'
+  CSE_ID = '012260636148796261445:withapkaw8y'
+
+  word = params[:word]
+
+  searcher = Google::Apis::CustomsearchV1::CustomsearchService.new
+  searcher.key = API_KEY
+
+  results = searcher.list_cses(word, cx: CSE_ID, search_type: "image")
+  items = results.items
+  items = items.map!{|item| item.image.thumbnail_link}
+  json items
 end
 
 get "/question" do
