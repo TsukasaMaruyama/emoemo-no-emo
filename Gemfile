@@ -22,12 +22,12 @@ gem 'pry'
 
 gem 'nokogiri'
 
-
 group :production do
     gem 'pg' , '~> 0.18'
 end
 
-
 gem 'aldy_debug_kit_sqlite3'
 
 gem 'levenshtein', '~> 0.2.2'
+
+gem "searchkick"
