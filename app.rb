@@ -54,3 +54,7 @@ post "/post_words" do
   redirect "/complete"
 
 end
+
+get "/complete" do
+  erb :complete
+end
