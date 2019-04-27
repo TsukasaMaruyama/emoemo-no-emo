@@ -6,7 +6,7 @@ require './models'
 require 'aldy_debug_kit_sqlite3'
 require './show_table_action.rb'
 
-require 'levenshtein'
+# require 'levenshtein'
 enable :sessions
 
 # 使い方
@@ -29,29 +29,47 @@ post "/post_words" do
   port_word.gender = params[:gender]
   port_word.save
 
-  emo_words = EmoWord.all
-  emo_words.each do |emo_word|
-    if (emo_word.text.nil?) then
-      next
-    end
-    distance = Levenshtein::normalized_distance(emo_word.text, text)
-    if distance < 0.80 then
-      port_word.emo_word_id = emo_word.id
-      port_word.save
-      session.clear
-      redirect "/complete"
-      break
-    end
+  emo_words = EmoWord.where(text: port_word.text)
+
+  if emo_words.blank?
+    emo_word = EmoWord.new
+    emo_word.text = port_word.text
+    emo_word.save
+
+    port_word.emo_word_id = emo_word.id
+    port_word.save
+  else
+    emo_word = emo_words.first
+    port_word.emo_word_id = emo_word.id
+    port_word.save
   end
 
-  emo_word = EmoWord.new
-  emo_word.text = port_word.text
-  emo_word.save
-
-  port_word.emo_word_id = emo_word.id
-  port_word.save
   session.clear
   redirect "/complete"
+
+  # emo_words.each do |emo_word|
+  #   if (emo_word.text.nil?) then
+  #     next
+  #   end
+  #   # distance = Levenshtein::normalized_distance(emo_word.text, text)
+
+  #   if distance < 0.80 then
+  #     port_word.emo_word_id = emo_word.id
+  #     port_word.save
+  #     session.clear
+  #     redirect "/complete"
+  #     break
+  #   end
+  # end
+
+  # emo_word = EmoWord.new
+  # emo_word.text = port_word.text
+  # emo_word.save
+
+  # port_word.emo_word_id = emo_word.id
+  # port_word.save
+  # session.clear
+  # redirect "/complete"
 
 end
 

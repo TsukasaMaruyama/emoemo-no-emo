@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_04_23_162728) do
     t.string "image_url"
     t.integer "emo_word_id"
     t.integer "birth_year"
+    t.integer "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
