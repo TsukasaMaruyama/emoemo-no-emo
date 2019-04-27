@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #949494;
+}
+
+.main-box {
+  margin: 80px;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+/* ロゴイメージ */
+.logo-image {
+  display: block;
+  width: 70%;
+  padding-top: 100px;
+  margin: auto;
+}
+
+.first-question p {
+  width: 70%;
+  margin: auto;
+  border: 1px solid #949494;
+  font-size: 36px;
+  padding: 30px 30px;
+  margin-top: 100px;
+}
+
+.second-question p {
+  width: 70%;
+  margin: auto;
+  border: 1px solid #949494;
+  font-size: 36px;
+  padding: 30px 30px;
+  margin-top: 100px;
+}
+
+.third-question p {
+  width: 70%;
+  margin: auto;
+  border: 1px solid #949494;
+  font-size: 36px;
+  padding: 30px 30px;
+  margin-top: 100px;
+}

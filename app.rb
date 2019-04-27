@@ -16,6 +16,10 @@ get '/' do
   erb :index
 end
 
+get "/question" do
+  erb :question
+end
+
 post "/save_session" do
   key = params[:key]
   session[key] = params[:value]

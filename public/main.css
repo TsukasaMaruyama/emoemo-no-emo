@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: #949494;
+}
+
+.main-box {
+  margin: 80px;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+/* ロゴイメージ */
+.logo-image {
+  display: block;
+  width: 70%;
+  padding-top: 100px;
+  margin: auto;
+}
+
+/* ボタンのスタイル */
+.add-button {
+  width: 60%;
+  height: 120px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 100px auto;
+  background-color: #4d4d4d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+/* マウスオーバー時のカラー */
+.add-button:hover {
+  background-color: #949494;
+}
+/* リンク領域のスタイル */
+.add-button-a {
+  display: block;
+  padding: 35px 0;
+  text-align: center;
+  font-size: 36px;
+  color: #f2f2f2;
+}
+/* マウスホバー時のカラー*/
+.add-button-a:hover {
+  color: #fff;
+}
+
+.copyright {
+  text-align: center;
+  line-height: 50px;
+}
