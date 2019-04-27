@@ -5,6 +5,7 @@ class PostWords < ActiveRecord::Migration[5.2]
       t.string :image_url
       t.integer :emo_word_id
       t.integer :birth_year
+      t.integer :gender
       t.timestamps null: false
     end
   end
