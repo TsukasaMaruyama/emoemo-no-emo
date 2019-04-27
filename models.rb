@@ -9,5 +9,4 @@ class PostWord < ActiveRecord::Base
 end
 
 class EmoWord <  ActiveRecord::Base
-  searchkick
 end
