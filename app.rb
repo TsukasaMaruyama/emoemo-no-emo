@@ -102,8 +102,16 @@ get "/admins" do
   if session[:is_login].nil? then
     redirect "/login"
   end
-  @models = AldyDebugKitSqlite3.getTables
-  erb :aldy_show_sqlite3_tables
+  # @models = AldyDebugKitSqlite3.getTables
+  # erb :aldy_show_sqlite3_tables
+
+  @post_words = PostWord.all
+  erb :admins
+end
+
+get "/post_words/delete/:id" do
+  PostWord.find(params[:id]).destroy
+  redirect "/admins"
 end
 
 get '/robots.txt' do

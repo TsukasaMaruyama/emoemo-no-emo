@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>エモエモのエモ</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="main-box">
+       <table class="table">
+        <tr>
+            <th>ワード</th><th>画像</th><th>削除</th>
+        </tr>
+        <% @post_words.each do |post_word| %>
+        <tr>
+            <td><%= post_word.text %></td>
+            <td><img src="<%= post_word.image_url %>"></td>
+            <td><a href="/post_words/delete/<%= post_word.id %>">削除</a></td>
+        </tr>
+        <% end %>
+        </table>
+    </div>
+</body>
+</html>
