@@ -4,7 +4,7 @@ require 'sinatra/reloader' if development?
 require './models'
 
 require 'aldy_debug_kit_sqlite3'
-require './show_table_action.rb'
+# require './show_table_action.rb'
 
 require 'google/apis/customsearch_v1'
 
@@ -102,7 +102,8 @@ get "/admins" do
   if session[:is_login].nil? then
     redirect "/login"
   end
-  erb :models
+  @models = AldyDebugKitSqlite3.getTables
+  erb :aldy_show_sqlite3_tables
 end
 
 get '/robots.txt' do
