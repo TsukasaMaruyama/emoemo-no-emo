@@ -70,7 +70,7 @@ post "/post_words" do
   end
 
   session.clear
-  redirect "/complete"
+  redirect "/models"
 
   # emo_words.each do |emo_word|
   #   if (emo_word.text.nil?) then

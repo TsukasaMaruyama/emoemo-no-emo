@@ -9,6 +9,35 @@
 
     <link rel="stylesheet" href="question.css">
     <style>
+
+    .select_image_title {
+        width: 100%;
+        margin: auto;
+        border: 1px solid #949494;
+        font-size: 36px;
+        padding: 30px 30px;
+        margin-top: 50px;
+    }
+
+    .selected {
+        border: 1px solid red;
+    }
+
+    .image_container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image_wrap {
+        width: 50%;
+        padding: 10px;
+    }
+
+    .image_wrap img {
+        width: 100%;
+    }
+
     .steps {
         display: none
     }
@@ -48,6 +77,9 @@
     section {
         float: left;
         position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0,-50%);
     }
 
     .content {
@@ -66,8 +98,8 @@
 
 <body>
     <div class="main-box">
-        <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">c
-        <div class="container">
+        <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">
+        <form class="container" action="/post_words" method="post">
 
             <h3 class="question_title"></h3>
             <section>
@@ -121,69 +153,34 @@
                 <div class="third-question">
                     <p>あなたが懐かしいと思う言葉</p>
                 </div>
-                <input type="text" class="text_form">
+                <input type="text" class="text_form" name="text">
             </section>
 
             <h3 class="question_title"></h3>
-            <section>
-                <div class="first-question">
-                    <p>あなたの性別</p>
+            <section >
+             <p class="select_image_title">エモワードの画像を選んでね</p>
+                <div class="image_container">
+                <div class="image_wrap">
+                    <img src="">
                 </div>
-                <p class="gender"><input type="radio" name="gender" value="male">男性
-                <input type="radio" name="gender" value="female">女性
-                </p>
-
-                <div class="second-question">
-                    <p>あなたの生まれた年</p>
+                <div class="image_wrap">
+                    <img src="">
                 </div>
-                <p class="year">
-                平成
-                <select name="birthyear" class="year_check">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-                年</p>
-
-                <div class="third-question">
-                    <p>あなたが懐かしいと思う言葉</p>
+                <div class="image_wrap">
+                    <img src="">
                 </div>
-                <input type="text" class="text_form">
+                <div class="image_wrap">
+                    <img src="">
+                </div>
+                <input type="hidden" name="image_url">
+                </div>
             </section>
 
-        </div>
+        </form>
     </div>
 </body>
 <script>
-$(".container").steps({
+    $(".container").steps({
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "slideLeft",
@@ -193,8 +190,54 @@ $(".container").steps({
         labels: {
             next: "次へ",
             previous: "戻る",
-            finish: "完了！"
+            finish: "登録!"
+        },
+        onStepChanged: function (event, currentIndex, priorIndex)
+        {
+            var images = [];
+            if (currentIndex === 1) {
+                var text = $('input[name="text"]').val();
+                console.log(text);
+                $.ajax({
+                    type: 'get',
+                    url: '/get_images',
+                    data: {word: text},
+                    dataType: "json"
+                })
+                .done(function(images) {
+                    console.log(images);
+                    $('.image_wrap').each(function(index) {
+                    console.log(index);
+                    console.log(images[index]);
+                    $(this).find('img').attr("src", images[index]);
+                });
+                });
+
+            }
+            console.log(images);
+            console.log(currentIndex);
+            // Used to skip the "Warning" step if the user is old enough.
+            // if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
+            // {
+            //     form.steps("next");
+            // }
+            // // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+            // if (currentIndex === 2 && priorIndex === 3)
+            // {
+            //     form.steps("previous");
+            // }
+        },
+        onFinished: function (event, currentIndex)
+        {
+            console.log("finished");
+             $('.container').submit();
         }
     });
+
+    $(".image_wrap").on("click", function() {
+        $(this).addClass("selected");
+        $("input[name='image_url']").val($(this).find("img").attr("src"));
+    });
+
 </script>
 </html>
