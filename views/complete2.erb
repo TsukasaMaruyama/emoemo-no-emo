@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>エモエモのエモ</title>
+     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="question.css">
+    <style>
+
+    .select_image_title {
+        width: 100%;
+        margin: auto;
+        border: 1px solid #949494;
+        font-size: 36px;
+        padding: 30px 30px;
+        margin-top: 50px;
+    }
+
+    .selected {
+        border: 1px solid red;
+    }
+
+    .image_container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .image_wrap {
+        width: 50%;
+        padding: 10px;
+    }
+
+    .image_wrap img {
+        width: 100%;
+    }
+
+    .steps {
+        display: none
+    }
+
+    .content:before {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .actions {
+        position: relative
+    }
+
+    .actions ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .actions li {
+        width: 200px;
+        border: 1px solid black;
+        margin-left: 20px;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+
+    }
+
+    .actions a {
+        text-decoration: none;
+        font-size: 35px;
+        color: black;
+    }
+
+    section {
+        float: left;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0,-50%);
+    }
+
+    .content {
+        display: block;
+        margin: .5em;
+        min-height: 1000px;
+        overflow: hidden;
+        position: relative;
+        width: auto;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="main-box">
+        <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">
+        <div class="container">
+          <p>あなたのエモエモワード</p>
+          <p><%= @post_word.text %></p>
+          <img src="<%= @post_word.image_url %>">
+        </div>
+
+        <a href="https://twitter.com/intent/tweet?text=あなたの平成のエモエモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモエモワード,<%= @post_word.text %>" onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow" class="twitter-link">
+        ツイッターでシェア
+        </a>
+        <a href="/">TOPへ戻る</a>
+    </div>
+</body>
+</html>

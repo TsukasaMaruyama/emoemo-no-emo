@@ -107,9 +107,10 @@ get "/admins" do
   erb :admins
 end
 
-get "/post_words/random" do
-  port_word = PostWord.order("RAND()").first
-  url = "https://twitter.com/intent/tweet?text=あなたの平成のエモエモワード&url=https://heisei-words.emoemo-no-emo.com/share/#{post_word.id}&hashtags=あなたの平成エモエモワード,#{post_word.text}"
+get "/share_random" do
+  post_word = PostWord.all.sample
+
+  url = URI.encode "https://twitter.com/intent/tweet?text=あなたの平成のエモエモワード&url=https://heisei-words.emoemo-no-emo.com/share/#{post_word.id}&hashtags=あなたの平成エモエモワード,#{post_word.text}"
 
   redirect url
 end
