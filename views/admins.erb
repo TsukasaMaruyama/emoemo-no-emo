@@ -14,10 +14,11 @@
     <div class="main-box">
        <table class="table">
         <tr>
-            <th>ワード</th><th>画像</th><th>削除</th>
+            <th>ID</th><th>ワード</th><th>画像</th><th>削除</th>
         </tr>
         <% @post_words.each do |post_word| %>
         <tr>
+            <td><%= post_word.id %></td>
             <td><%= post_word.text %></td>
             <td><img src="<%= post_word.image_url %>"></td>
             <td><a href="/post_words/delete/<%= post_word.id %>">削除</a></td>
