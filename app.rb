@@ -102,11 +102,16 @@ get "/admins" do
   if session[:is_login].nil? then
     redirect "/login"
   end
-  # @models = AldyDebugKitSqlite3.getTables
-  # erb :aldy_show_sqlite3_tables
 
   @post_words = PostWord.all
   erb :admins
+end
+
+get "/post_words/random" do
+  port_word = PostWord.order("RAND()").first
+  url = "https://twitter.com/intent/tweet?text=あなたの平成のエモエモワード&url=https://heisei-words.emoemo-no-emo.com/share/#{post_word.id}&hashtags=あなたの平成エモエモワード,#{post_word.text}"
+
+  redirect url
 end
 
 get "/post_words/delete/:id" do

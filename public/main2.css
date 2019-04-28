@@ -1,34 +1,34 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  text-decoration: none;
 }
+
 body {
   background-color: #949494;
 }
+
 .main-box {
-  margin: 4vh;
-  height: 92vh;
+  margin: 80px;
+  height: 100vh;
   background-color: #f2f2f2;
 }
-.container {
-  width: 75%;
-  margin: 0 auto;
-}
+
 /* ロゴイメージ */
 .logo-image {
   display: block;
-  width: 100%;
+  width: 70%;
   padding-top: 100px;
   margin: auto;
 }
+
 /* ボタンのスタイル */
 .add-button {
-  width: 100%;
+  width: 60%;
   height: 120px;
   border-radius: 5px;
   text-align: center;
-  margin: 110px auto;
+  margin: 100px auto;
   background-color: #4d4d4d;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
@@ -42,37 +42,14 @@ body {
   padding: 35px 0;
   text-align: center;
   font-size: 36px;
-  text-decoration: none;
-  letter-spacing: 8px;
   color: #f2f2f2;
 }
 /* マウスホバー時のカラー*/
 .add-button-a:hover {
   color: #fff;
 }
+
 .copyright {
   text-align: center;
   line-height: 50px;
-}
-/*説明文*/
-.explain-text {
-  text-align: center;
-  font-size: 25px;
-  line-height: 50px;
-  padding: 35px;
-  letter-spacing: 8px;
-}
-.add-word {
-  width: 100%;
-  height: 120px;
-  text-align: center;
-  margin: 110px auto;
-}
-.add-word a {
-  color: #4d4d4d;
-  display: block;
-  padding: 35px 0;
-  text-align: center;
-  font-size: 36px;
-  letter-spacing: 8px;
 }
