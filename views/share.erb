@@ -10,6 +10,14 @@
     <meta data-n-head="true" property="og:title" content="エモエモのエモな平成ワード">
     <meta data-n-head="true" property="og:site_name" content="エモエモのエモな平成ワード">
     <meta data-n-head="true" property="og:description" content="エモエモワード「<%= @post_word.text %>」">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@aldy_verymaccho" />
+    <meta property="og:url" content="htts://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>" />
+    <meta property="og:title" content="平成エモエモワード" />
+    <meta property="og:description" content="エモエモのエモなエモワード「<%= @post_word.text %>」" />
+    <meta property="og:image" content="<%= @post_word.image_url %>" />
+
     <link rel="stylesheet" href="question.css">
     <style>
 
