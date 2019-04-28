@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>steps</title>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+</head>
+<body>
+<div id="example-basic">
+    <h3>質問１</h3>
+    <section>
+        <p>ほげほげほげ？</p>
+        <textarea name="q1" id="" cols="30" rows="3"></textarea>
+    </section>
+    <h3>質問２</h3>
+    <section>
+        <p>ふがふがふが？</p>
+        <textarea name="q2" id="" cols="30" rows="3"></textarea>
+    </section>
+    <h3>質問３</h3>
+    <section>
+        <p>ぴよぴよぴよ？</p>
+        <textarea name="q3" id="" cols="30" rows="3"></textarea>
+    </section>
+</div>
+    <script>
+    $("#example-basic").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true,
+        titleTemplate: "#title#",
+        labels: {
+            next: "次へ",
+            previous: "戻る",
+            finish: "完了！"
+        }
+    });
+    </script>
+</body>
+</html>

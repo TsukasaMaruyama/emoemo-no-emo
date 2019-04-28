@@ -37,6 +37,10 @@ get "/question" do
   erb :question
 end
 
+get "/demo" do
+  erb :demo
+end
+
 post "/save_session" do
   key = params[:key]
   session[key] = params[:value]

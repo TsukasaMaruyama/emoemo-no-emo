@@ -2,69 +2,171 @@
 <html lang="ja">
 
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
     <meta charset="UTF-8">
     <title>エモエモのエモ</title>
+     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js"></script>
     <link rel="stylesheet" href="question.css">
+    <style>
+    .steps {
+        display: none
+    }
+
+    .actions ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .actions li {
+        width: 200px;
+        border: 1px solid black;
+        margin-left: 20px;
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+
+    }
+
+    .actions a {
+        text-decoration: none;
+        font-size: 35px;
+        color: black;
+    }
+    </style>
 </head>
 
 <body>
     <div class="main-box">
-        <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">
         <div class="container">
-        <div class="first-question">
-            <p>あなたの性別</p>
-            <input type="radio" name="gender" value="1">男
-            <input type="radio" name="gender" value="2">女
-        </div>
+            <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">
 
-        <div class="second-question">
-            <p>あなたの生まれた年</p>
-            <select name="birth_year">
-              <option value="1">平成1年</option>
-              <option value="2">平成2年</option>
-              <option value="3">平成3年</option>
-              <option value="4">平成4年</option>
-              <option value="5">平成5年</option>
-              <option value="6">平成6年</option>
-              <option value="7">平成7年</option>
-              <option value="8">平成8年</option>
-              <option value="9">平成9年</option>
-              <option value="10">平成10年</option>
-              <option value="11">平成11年</option>
-              <option value="12">平成12年</option>
-              <option value="13">平成13年</option>
-              <option value="14">平成14年</option>
-              <option value="15">平成15年</option>
-              <option value="16">平成16年</option>
-              <option value="17">平成17年</option>
-              <option value="18">平成18年</option>
-              <option value="19">平成19年</option>
-              <option value="20">平成20年</option>
-              <option value="21">平成21年</option>
-              <option value="22">平成22年</option>
-              <option value="23">平成23年</option>
-              <option value="24">平成24年</option>
-              <option value="25">平成25年</option>
-              <option value="26">平成26年</option>
-              <option value="27">平成27年</option>
-              <option value="28">平成28年</option>
-              <option value="29">平成29年</option>
-              <option value="30">平成30年</option>
-              <option value="31">平成31年</option>
-            </select>
-        </div>
+            <h3 class="question_title"></h3>
+            <section>
+                <div class="first-question">
+                    <p>あなたの性別</p>
+                </div>
+                <p class="gender"><input type="radio" name="gender" value="male">男性
+                <input type="radio" name="gender" value="female">女性
+                </p>
 
-        <div class="third-question">
-            <p>あなたのエモエモワード</p>
-            <input type="text" name="text">
-        </div>
+                <div class="second-question">
+                    <p>あなたの生まれた年</p>
+                </div>
+                <p class="year">
+                平成
+                <select name="birthyear" class="year_check">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                年</p>
 
+                <div class="third-question">
+                    <p>あなたが懐かしいと思う言葉</p>
+                </div>
+                <input type="text" class="text_form">
+            </section>
 
-        <div class="third-question">
-            <p>あなたのエモエモワード</p>
+            <h3 class="question_title"></h3>
+            <section>
+                <div class="first-question">
+                    <p>あなたの性別</p>
+                </div>
+                <p class="gender"><input type="radio" name="gender" value="male">男性
+                <input type="radio" name="gender" value="female">女性
+                </p>
+
+                <div class="second-question">
+                    <p>あなたの生まれた年</p>
+                </div>
+                <p class="year">
+                平成
+                <select name="birthyear" class="year_check">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                年</p>
+
+                <div class="third-question">
+                    <p>あなたが懐かしいと思う言葉</p>
+                </div>
+                <input type="text" class="text_form">
+            </section>
+
         </div>
-      </div>
     </div>
-    </body>
+</body>
+<script>
+$(".container").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true,
+         startIndex: 0,
+        transitionEffectSpeed: 400,
+        labels: {
+            next: "次へ",
+            previous: "戻る",
+            finish: "完了！"
+        }
+    });
+</script>
 </html>
