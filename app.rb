@@ -82,9 +82,9 @@ end
 
 get "/share/:id" do
    @post_word = PostWord.find(params[:id])
-   if @port_word.blank? then
-    redirect "/"
-   end
+  #  if @port_word.nil? then
+  #   redirect "/"
+  #  end
    erb :share
 end
 
