@@ -29,7 +29,7 @@ get '/get_images' do
 
   results = searcher.list_cses(word, cx: CSE_ID, search_type: "image")
   items = results.items
-  items = items.map!{|item| item.image.thumbnail_link}
+  items = items.map!{|item| item.link}
   json items
 end
 
