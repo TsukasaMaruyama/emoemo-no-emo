@@ -69,35 +69,18 @@ post "/post_words" do
     port_word.save
   end
 
-  session.clear
-  redirect "/models"
-
-  # emo_words.each do |emo_word|
-  #   if (emo_word.text.nil?) then
-  #     next
-  #   end
-  #   # distance = Levenshtein::normalized_distance(emo_word.text, text)
-
-  #   if distance < 0.80 then
-  #     port_word.emo_word_id = emo_word.id
-  #     port_word.save
-  #     session.clear
-  #     redirect "/complete"
-  #     break
-  #   end
-  # end
-
-  # emo_word = EmoWord.new
-  # emo_word.text = port_word.text
-  # emo_word.save
-
-  # port_word.emo_word_id = emo_word.id
-  # port_word.save
   # session.clear
-  # redirect "/complete"
+  # redirect "/models"
+  redirect "/complete/"+(port_word.id).to_s
 
 end
 
-get "/complete" do
+get "/complete/:id" do
+  @post_word = PostWord.find(params[:id])
   erb :complete
+end
+
+get "/share/:id" do
+   @post_word = PostWord.find(params[:id])
+   erb :share
 end
