@@ -86,7 +86,7 @@ get "/share/:id" do
 end
 
 get "/login" do
-  erb :login_admin
+  erb :login
 end
 
 post "/login" do
