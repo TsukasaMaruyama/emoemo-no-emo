@@ -84,3 +84,9 @@ get "/share/:id" do
    @post_word = PostWord.find(params[:id])
    erb :share
 end
+
+get '/robots.txt' do
+
+   "User-agent: * Allow: /"
+
+end
