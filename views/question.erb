@@ -6,10 +6,21 @@
     <title>エモエモのエモ</title>
      <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.js"></script>
+
     <link rel="stylesheet" href="question.css">
     <style>
     .steps {
         display: none
+    }
+
+    .content:before {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .actions {
+        position: relative
     }
 
     .actions ul {
@@ -33,13 +44,30 @@
         font-size: 35px;
         color: black;
     }
+
+    section {
+        float: left;
+        position: absolute;
+    }
+
+    .content {
+        display: block;
+        margin: .5em;
+        min-height: 1000px;
+        overflow: hidden;
+        position: relative;
+        width: auto;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
     </style>
 </head>
 
 <body>
     <div class="main-box">
+        <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">c
         <div class="container">
-            <img src="img/heisei-emo-website-06.png" alt="" class="logo-image">
 
             <h3 class="question_title"></h3>
             <section>
@@ -159,7 +187,7 @@ $(".container").steps({
         headerTag: "h3",
         bodyTag: "section",
         transitionEffect: "slideLeft",
-        autoFocus: true,
+        // autoFocus: true,
          startIndex: 0,
         transitionEffectSpeed: 400,
         labels: {
