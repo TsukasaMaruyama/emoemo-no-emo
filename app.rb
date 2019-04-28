@@ -85,6 +85,26 @@ get "/share/:id" do
    erb :share
 end
 
+get "/login" do
+  erb :login_admin
+end
+
+post "/login" do
+  if params[:password] == "ninonanoni" then
+    session[:is_login] = "emoemo"
+    redirect "/admins"
+  else
+    redirect "/login"
+  end
+end
+
+get "/admins" do
+  if session[:is_login].nil? then
+    redirect "/login"
+  end
+  erb :models
+end
+
 get '/robots.txt' do
 
    "User-agent: * Allow: /"
