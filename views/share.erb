@@ -6,6 +6,10 @@
     <title>エモエモのエモ</title>
      <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <meta property="og:image" content="<%= @post_word.image_url %>">
+    <meta data-n-head="true" name="twitter:image:src" content="<%= @post_word.image_url %>">
+    <meta data-n-head="true" property="og:title" content="エモエモのエモな平成ワード">
+    <meta data-n-head="true" property="og:site_name" content="エモエモのエモな平成ワード">
+    <meta data-n-head="true" property="og:description" content="エモエモワード「<%= @post_word.text %>」">
     <link rel="stylesheet" href="question.css">
     <style>
 
