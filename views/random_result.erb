@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139147340-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-139147340-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/top.css">
+    <title>TOP</title>
+    <meta data-n-head="true" name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@aldy_verymaccho" />
+    <meta property="og:url" content="https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>" />
+    <meta property="og:title" content="<%= @post_word.text %>" />
+    <meta property="og:description" content="平成エモワード | 平成の懐かしくてエモエモな言葉たちの溜まり場" />
+    <meta property="og:image" content="<%= @post_word.image_url %>" />
+    <meta name="twitter:image:src" content="<%= @post_word.image_url %>" data-n-head="true">
+</head>
+<body>
+    <div class="main-box">
+   <div class="container">
+    <img src="/img/heisei-emo-website-06.png" alt="" class="logo-image">
+    <img src="<%= @post_word.image_url %>" alt="" class="content-image">
+    <p class="content-text"><%= @post_word.text%></p>
+    <div class="add-button">
+        <a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモワード,<%= @post_word.text %>" class="add-button-a">「<%= @post_word.text %>」をシェア</a>
+    </div>
+    <div class="add-button" style="margin: 40px auto;">
+        <a href="/share_random" class="add-button-a">他のエモワードを探す</a>
+    </div>
+    <div class="copyright">
+       Copyright (C) 2019 heiseiemoemo.All Rights Reserved
+    </div>
+    </div>
+    </div>
+</body>
+</html>

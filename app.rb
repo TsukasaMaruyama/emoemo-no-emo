@@ -88,6 +88,8 @@ get "/share/:id" do
    erb :share
 end
 
+get "/"
+
 get "/login" do
   erb :login
 end
@@ -113,9 +115,15 @@ end
 get "/share_random" do
   post_word = PostWord.all.sample
 
-  url = URI.encode "https://twitter.com/intent/tweet?text=あなたの平成のエモエモワード&url=https://heisei-words.emoemo-no-emo.com/share/#{post_word.id}&hashtags=あなたの平成エモエモワード,#{post_word.text}"
+  redirect "/share_random/result/" + (port_word.id).to_s
+  url = URI.encode "https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/#{post_word.id}&hashtags=あなたの平成エモエモワード,#{post_word.text}"
 
   redirect url
+end
+
+get "/share_random/result/:id" do
+  @post_word = PostWord.find(params[:id])
+  erb :randome_result
 end
 
 get "/post_words/delete/:id" do
