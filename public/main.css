@@ -21,6 +21,7 @@ body {
   width: 100%;
   padding-top: 100px;
   margin: auto;
+  margin-bottom: 40px;
 }
 /* ボタンのスタイル */
 .add-button {
@@ -28,7 +29,7 @@ body {
   height: 120px;
   border-radius: 5px;
   text-align: center;
-  margin: 110px auto;
+  margin: 50px auto 10px;
   background-color: #4d4d4d;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
@@ -64,9 +65,8 @@ body {
 }
 .add-word {
   width: 100%;
-  height: 120px;
   text-align: center;
-  margin: 110px auto;
+  margin: 10px auto 20px;
 }
 .add-word a {
   color: #4d4d4d;

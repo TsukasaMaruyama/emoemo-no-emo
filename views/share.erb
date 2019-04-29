@@ -7,8 +7,8 @@
     <meta data-n-head="true" name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@aldy_verymaccho" />
     <meta property="og:url" content="https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>" />
-    <meta property="og:title" content="平成エモエモワード" />
-    <meta property="og:description" content="エモエモのエモなエモワード「<%= @post_word.text %>」" />
+    <meta property="og:title" content="<%= @post_word.text %>" />
+    <meta property="og:description" content="平成エモワード | 平成の懐かしくてエモエモな言葉たちの溜まり場" />
     <meta property="og:image" content="<%= @post_word.image_url %>" />
     <meta name="twitter:image:src" content="<%= @post_word.image_url %>" data-n-head="true">
 </head>
@@ -19,7 +19,10 @@
     <img src="<%= @post_word.image_url %>" alt="" class="content-image">
     <p class="content-text"><%= @post_word.text%></p>
     <div class="add-button">
-        <a href="/" class="add-button-a">エモワードを探してみる</a>
+        <a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモワード,<%= @post_word.text %>" class="add-button-a">「<%= @post_word.text %>」をシェア</a>
+    </div>
+    <div class="add-button" style="margin: 40px auto;">
+        <a href="/" class="add-button-a">他のエモワードを探す</a>
     </div>
     <div class="copyright">
        Copyright (C) 2019 heiseiemoemo.All Rights Reserved
