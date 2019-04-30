@@ -113,7 +113,8 @@ end
 get "/share_random" do
   post_word = PostWord.all.sample
 
-  redirect "/share_random/result/" + (port_word.id).to_s
+  redirect "/share_random/result/" + (post_word.id).to_s
+
   url = URI.encode "https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/#{post_word.id}&hashtags=あなたの平成エモエモワード,#{post_word.text}"
 
   redirect url
