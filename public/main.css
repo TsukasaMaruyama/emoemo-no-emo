@@ -4,13 +4,9 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #949494;
+  background-color: #f1f1f1;
 }
-.main-box {
-  margin: 4vh;
-  min-height: 92vh;
-  background-color: #f2f2f2;
-}
+
 .container {
   width: 75%;
   margin: 0 auto;
@@ -18,24 +14,39 @@ body {
 /* ロゴイメージ */
 .logo-image {
   display: block;
-  width: 90%;
+  width: 100%;
   padding-top: 100px;
   margin: auto;
   margin-bottom: 40px;
 }
 /* ボタンのスタイル */
-.add-button {
+.add-button-e {
   width: 100%;
-  height: 120px;
+  height: 130px;
   border-radius: 5px;
   text-align: center;
   margin: 50px auto 10px;
-  background-color: #4d4d4d;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin-bottom: 100px;
+  background-color: #8dc21f;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); */
+}
+
+.add-button-g {
+  width: 100%;
+  height: 130px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 200px auto 10px;
+  background-color: #d74f8e;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); */
 }
 /* マウスオーバー時のカラー */
-.add-button:hover {
-  background-color: #949494;
+.add-button-e:hover {
+  background-color: #8dc21f;
+}
+
+.add-button-g:hover {
+  background-color: #d74f8e;
 }
 /* リンク領域のスタイル */
 .add-button-a {
@@ -57,12 +68,16 @@ body {
 }
 /*説明文*/
 .explain-text {
-  text-align: center;
   font-size: 25px;
   line-height: 50px;
-  padding: 35px;
   letter-spacing: 8px;
+  margin-top: 40px;
 }
+
+.explain-text:first-child {
+  margin-top: 100px;
+}
+
 .add-word {
   width: 100%;
   text-align: center;
@@ -75,4 +90,10 @@ body {
   text-align: center;
   font-size: 36px;
   letter-spacing: 8px;
+}
+
+.gatya {
+  width: 5%;
+  float: left;
+  margin-right: 20px;
 }
