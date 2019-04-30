@@ -7,7 +7,6 @@ require 'aldy_debug_kit_sqlite3'
 # require './show_table_action.rb'
 
 require 'google/apis/customsearch_v1'
-require  'rubocop-performance'
 
 # require 'levenshtein'
 enable :sessions
@@ -20,8 +19,8 @@ get '/' do
 end
 
 get '/get_images' do
-  API_KEY = 'AIzaSyB8rzr7ev_zswUN07t1eSq6vd9QqEhN4M0'
-  CSE_ID = '012260636148796261445:withapkaw8y'
+  API_KEY = 'AIzaSyCsiitQBamFZRenCI2fCxyd-79xkmIs9qo'
+  CSE_ID = '012260636148796261445:sndpa2f26sm'
 
   word = params[:word]
 
