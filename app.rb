@@ -140,3 +140,9 @@ get "/all" do
   @words = PostWord.all
   erb :word_all
 end
+
+post "/get_random_words" do
+  word_ids = params[:word_ids]
+  words = PostWord.where.not(id: word_ids).order("RANDOM()").limit(5)
+  json words
+end

@@ -3,6 +3,8 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139147340-1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -24,20 +26,46 @@
 </head>
 <body>
     <div class="main-box">
-   <div class="container">
-    <img src="/img/heisei-emo-website-06.png" alt="" class="logo-image">
-    <img src="<%= @post_word.image_url %>" alt="" class="content-image">
-    <p class="content-text"><%= @post_word.text%></p>
-    <div class="add-button">
-        <a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモワード,<%= @post_word.text %>" class="add-button-a">「<%= @post_word.text %>」をシェア</a>
-    </div>
-    <div class="add-button" style="margin: 40px auto;">
-        <a href="/share_random" class="add-button-a">他のエモワードを探す</a>
-    </div>
-    <div class="copyright">
-       Copyright (C) 2019 heiseiemoemo.All Rights Reserved
-    </div>
-    </div>
+        <div class="container">
+            <img src="/img/heisei-emo-website-06.png" alt="" class="logo-image">
+            <img src="<%= @post_word.image_url %>" alt="" class="content-image">
+            <p class="content-text"><%= @post_word.text%></p>
+            <div class="add-button">
+                <a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモワード,<%= @post_word.text %>" class="add-button-a">「<%= @post_word.text %>」をシェア</a>
+            </div>
+            <div class="add-button" style="margin: 40px auto;">
+                <a href="/share_random" class="add-button-a">他のエモワードを探す</a>
+            </div>
+            <button onclick="getWords()">ボタン</button>
+            <div class="copyright">
+            Copyright (C) 2019 heiseiemoemo.All Rights Reserved
+            </div>
+        </div>
     </div>
 </body>
+<script>
+    var post_ids = [1, 2, 4, 5, 6];
+    var posts = [];
+
+    function getWords() {
+        $.ajax({
+            type: 'post',
+            url: '/get_random_words',
+            data: {word_ids: post_ids},
+            dataType: "json"
+        })
+        .done(function(words) {
+            console.log(words);
+            res_word_ids = words.map(function( word ) {
+                //
+                return word.id;
+
+            });
+            console.log(res_word_ids);
+        });
+
+    }
+
+</script>
+
 </html>
