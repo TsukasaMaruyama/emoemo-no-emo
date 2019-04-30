@@ -3,7 +3,6 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139147340-1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,6 +13,7 @@
     </script>
 
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="/top.css">
     <title>TOP</title>
     <meta data-n-head="true" name="twitter:card" content="summary_large_image">
@@ -28,19 +28,60 @@
     <div class="main-box">
         <div class="container">
             <img src="/img/heisei-emo-website-06.png" alt="" class="logo-image">
-            <img src="<%= @post_word.image_url %>" alt="" class="content-image">
-            <p class="content-text"><%= @post_word.text%></p>
-            <div class="add-button">
-                <a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモワード,<%= @post_word.text %>" class="add-button-a">「<%= @post_word.text %>」をシェア</a>
+            <div class="change-container">
+                <img src="<%= @post_word.image_url %>" alt="" class="content-image">
+                <p class="content-text"><%= @post_word.text%></p>
+                <div class="add-button-b">
+                    <a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/<%= @post_word.id %>&hashtags=あなたの平成エモワード,<%= @post_word.text %>" class="add-button-a">「<%= @post_word.text %>」をシェア</a>
+                </div>
             </div>
             <div class="add-button" style="margin: 40px auto;">
-                <a href="/share_random" class="add-button-a">他のエモワードを探す</a>
+                <button href="" class="add-button-button">他のエモワードを探す</button>
             </div>
             <div class="copyright">
             Copyright (C) 2019 heiseiemoemo.All Rights Reserved
             </div>
         </div>
     </div>
+    <script>
+        var post_ids = [];
+        getWords();
+        const makeDom = word => {
+            console.log(word);
+            let add_content = `<img src="${word.image_url}" alt="" class="content-image">`;
+            add_content += `<p class="content-text">${word.text}</p>`;
+            add_content += `<div class="add-button"><a href="https://twitter.com/intent/tweet?text=あなたの平成エモワード&url=https://heisei-words.emoemo-no-emo.com/share/${word.text}&hashtags=あなたの平成エモワード,${word.text}" class="add-button-a">「${word.text}」をシェア</a></div>`;
+            $('.change-container:last').after('<div class="change-container none">');
+            $('.change-container:last').append(add_content);
+        }
+        $('.add-button').click( () => {
+            let count = $('.change-container').length;
+            if (count < 3) {
+                getWords()
+            };
+            $('.change-container.none:first').removeClass('none');
+            $('.change-container:first').remove();
+        });
+        function getWords() {
+            $.ajax({
+                type: 'post',
+                url: '/get_random_words',
+                data: {word_ids: post_ids},
+                dataType: "json",
+            })
+            .done(function(words) {
+                // 描写
+                console.log(words)
+                words.forEach( (word) => {
+                    makeDom(word);
+                });
+                res_word_ids = words.map(function( word ) {
+                    return word.id;
+                });
+                post_ids.push(res_word_ids);
+            });
+        }
+    </script>
 </body>
 
 </html>
