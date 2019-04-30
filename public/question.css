@@ -49,10 +49,8 @@ body {
 .third-question p {
   width: 100%;
   margin: auto;
-  border: 1px solid #949494;
-  font-size: 36px;
-  padding: 30px 30px;
-  margin-top: 50px;
+  font-size: 38px;
+  margin-bottom: 20px;
 }
 
 .gender {
@@ -68,7 +66,6 @@ body {
   width: 100%;
   padding: 30px 30px;
   margin: auto;
-  margin-top: 50px;
   font-size: 36px;
 }
 .year_check {
