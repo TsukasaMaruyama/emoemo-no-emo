@@ -9,7 +9,7 @@ body {
 }
 .main-box {
   margin: 4vh;
-  height: 92vh;
+  min-height: 92vh;
   background-color: #f2f2f2;
 }
 .container {
@@ -19,7 +19,7 @@ body {
 /* ロゴイメージ */
 .logo-image {
   display: block;
-  width: 100%;
+  width: 90%;
   padding-top: 100px;
   margin: auto;
 }

@@ -7,6 +7,7 @@ require 'aldy_debug_kit_sqlite3'
 # require './show_table_action.rb'
 
 require 'google/apis/customsearch_v1'
+require  'rubocop-performance'
 
 # require 'levenshtein'
 enable :sessions

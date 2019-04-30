@@ -91,6 +91,8 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.6)
+    rubocop-performance (1.1.0)
+      rubocop (>= 0.67.0)
     ruby-debug-ide (0.6.1)
       rake (>= 0.8.1)
     ruby-progressbar (1.10.0)
@@ -138,6 +140,7 @@ DEPENDENCIES
   rake
   rcodetools
   rubocop
+  rubocop-performance
   ruby-debug-ide
   sinatra
   sinatra-activerecord

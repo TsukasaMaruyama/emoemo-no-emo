@@ -10,7 +10,7 @@ body {
 
 .main-box {
   margin: 80px;
-  height: 100vh;
+  min-height: 92vh;
   background-color: #f2f2f2;
 }
 
