@@ -36,36 +36,11 @@
             <div class="add-button" style="margin: 40px auto;">
                 <a href="/share_random" class="add-button-a">他のエモワードを探す</a>
             </div>
-            <button onclick="getWords()">ボタン</button>
             <div class="copyright">
             Copyright (C) 2019 heiseiemoemo.All Rights Reserved
             </div>
         </div>
     </div>
 </body>
-<script>
-    var post_ids = [1, 2, 4, 5, 6];
-    var posts = [];
-
-    function getWords() {
-        $.ajax({
-            type: 'post',
-            url: '/get_random_words',
-            data: {word_ids: post_ids},
-            dataType: "json"
-        })
-        .done(function(words) {
-            console.log(words);
-            res_word_ids = words.map(function( word ) {
-                //
-                return word.id;
-
-            });
-            console.log(res_word_ids);
-        });
-
-    }
-
-</script>
 
 </html>
