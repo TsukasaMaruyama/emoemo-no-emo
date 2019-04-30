@@ -2,6 +2,7 @@
 source "https://rubygems.org"
 
 gem 'rubocop'
+gem 'rubocop-performance'
 gem 'ruby-debug-ide'
 gem 'rack-rewrite'
 gem 'debase'
