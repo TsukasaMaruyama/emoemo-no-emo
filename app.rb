@@ -88,8 +88,6 @@ get "/share/:id" do
    erb :share
 end
 
-get "/"
-
 get "/login" do
   erb :login
 end
@@ -123,7 +121,7 @@ end
 
 get "/share_random/result/:id" do
   @post_word = PostWord.find(params[:id])
-  erb :randome_result
+  erb :random_result
 end
 
 get "/post_words/delete/:id" do
