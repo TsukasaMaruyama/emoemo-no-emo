@@ -135,3 +135,8 @@ get '/robots.txt' do
    "User-agent: * Allow: /"
 
 end
+
+get "/all" do
+  @words = PostWord.all
+  erb :word_all
+end

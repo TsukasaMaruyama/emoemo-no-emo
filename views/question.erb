@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="question.css">
     <style>
 
+    .input_error {
+        border: red 1px solid;
+    }
+
     .select_image_title {
         width: 100%;
         margin: auto;
@@ -125,7 +129,7 @@
                 </div>
                 <p class="year">
                 平成
-                <select name="birthyear" class="year_check">
+                <select name="birth_year" class="year_check">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -201,6 +205,24 @@
             next: "次へ",
             previous: "戻る",
             finish: "登録!"
+        },
+        onStepChanging: function (event, currentIndex, priorIndex) {
+            if (currentIndex === 1) {
+                var text = $('input[name="text"]').val();
+                var birth_year = $('select[name="birth_year"]').val();
+                var gender  = $('input[name="gender"]').val();
+                if (!text) {
+                    $('input[name="text"]').addClass("input_error");
+                }
+                if (!birth_year) {
+
+                }
+                if (!gender) {
+
+                }
+                return false;
+            }
+            return true;
         },
         onStepChanged: function (event, currentIndex, priorIndex)
         {
